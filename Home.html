@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Readers Stop</title>
+</head>
+<style>
+    /* General Styling */
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #FDF5E6; /* Soft parchment color */
+        color: #4B2E2E; /* Dark brown for text */
+    }
+
+    header {
+        background-color: #6B8E23; /* Muted green background */
+        color: white;
+        padding: 15px 0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .logo h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        margin: 0;
+        text-align: left;
+    }
+
+    nav {
+        flex: 1;
+        text-align: right;
+    }
+
+    .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 15px;
+    }
+
+    .nav-links li {
+        display: inline;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 5px 10px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #F5F5DC; /* Light parchment color */
+    }
+
+    /* Animation for Hover Effect */
+    .nav-links a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #F5F5DC; /* Light parchment */
+        bottom: 0;
+        left: -100%;
+        transition: left 0.3s ease;
+    }
+
+    .nav-links a:hover::before {
+        left: 0;
+    }
+    /* Hero Section */
+    section[align="center"] {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #EEE8AA; /* Pale golden parchment */
+        border-bottom: 2px solid #D2B48C; /* Tan border for subtle separation */
+    }
+
+    section h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    section p {
+        font-size: 18px;
+        color: #666666;
+        margin: 0 auto;
+        max-width: 700px;
+    }
+
+    /* Featured Books */
+    h2 {
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        margin-top: 40px;
+    }
+
+    .outer {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: #FFF8DC; /* Light beige */
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+    }
+
+    .inner h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    .inner p {
+        font-size: 14px;
+        color: #4B2E2E;
+        line-height: 1.6;
+    }
+
+    .inner img {
+        border-radius: 8px;
+        margin-bottom: 10px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #4B2E2E; /* Dark brown */
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .outer {
+        display: grid;
+        grid-template-columns: 33%33%33%;
+    }
+
+    .inner {
+        display: flex;
+    }
+
+    .maincontainer {
+        position: relative;
+        width: 250px;
+        height: 320px;
+    }
+
+    .thecard {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: all 1s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .thecard:hover {
+        transform: rotateY(180deg);
+    }
+
+    .front {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        color: whitesmoke;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     
+    }
+
+    .back {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background: #FFF8DC;
+        color:  #4B2E2E;
+        border-radius: 15px;
+        transform: rotateY(180deg);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+    }
+</style>
+
+<body>
+    <!-- Header section start -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Readers <br> Stop</h1>
+            </div>
+            <div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Reviews.html">Book Reviews</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Header section end -->
+
+    <!-- Hero Banner Begin -->
+    <section align="center">
+        <h2>Welcome To Readers Stop</h2>
+        <p>
+            Dive into stories, Discover reviews, and Share Your Passion for Books
+        </p>
+    </section>
+    <!-- Hero Banner End -->
+
+    <!-- Featured Book Section Begin -->
+    <section>
+        <h2>Featured Books</h2>
+        <div class="outer">
+            <div class="inner">
+                <div>
+                    <img src="https://m.media-amazon.com/images/I/81q77Q39nEL.jpg" width="160" height="220" />
+                </div>
+                <div>
+                    <h3>Harry Potter and the Philosopher's Stone</h3>
+                    <p>
+                        A magical coming-of-age story that introduces the wizarding world
+                        and Harry's journey to confront Voldemort, blending friendship,
+                        adventure, and mystery into a captivating tale beloved by readers
+                        of all ages.
+                    </p>
+                </div>
+            </div>
+            <div class="inner">
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_0r-ANSAslrP5o32VVihnMZB-dv2FOEUlMA&s"
+                        width="160" height="220" />
+                </div>
+                <div>
+                    <h3>The Lord of the Rings: The Fellowship of the Ring</h3>
+                    <p>
+                        A richly crafted epic of camaraderie and courage, where Frodo
+                        Baggins and his companions embark on a perilous quest to destroy
+                        the One Ring and save Middle-earth from Sauron’s dark power.
+                    </p>
+                </div>
+            </div>
+            <div class="inner">
+                <div>
+                    <img src=" https://m.media-amazon.com/images/I/71y4X5150dL._AC_UF1000,1000_QL80_.jpg" width="160"
+                        height="220" />
+                </div>
+                <div>
+                    <h3>The Da Vinci Code</h3>
+                    <p>
+                        A gripping, fast-paced thriller where cryptologist Robert Langdon
+                        deciphers ancient symbols and codes to unravel a secret that could
+                        challenge the foundations of Christianity and alter history
+                        forever.
+                    </p>
+                </div>
+            </div>
+            <div class="inner">
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXQx9i-VqL1w0_AYfSzt06q-U4YVQwuA4E9g&s "
+                        width="160" height="220" />
+                </div>
+                <div>
+                    <h3>Gone Girl</h3>
+                    <p>
+                        A masterful psychological thriller unraveling the dark
+                        complexities of a marriage, filled with unexpected twists,
+                        manipulations, and shocking revelations that keep readers on edge
+                        until the very last page.
+                    </p>
+                </div>
+            </div>
+            <div class="inner">
+                <div>
+                    <img src=" https://m.media-amazon.com/images/I/81F90H7hnML.jpg" width="160" height="220" />
+                </div>
+                <div >                    <h3>Atomic Habits</h3>
+                    <p>
+                        An insightful guide to personal growth, explaining how small,
+                        consistent changes in daily habits can lead to remarkable
+                        transformations, backed by science and practical strategies for
+                        long-lasting success.
+                    </p>
+                </div>
+            </div>
+            <div class="inner">
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3HodYzIg8TcIJhMIjm9r1cJhC7qyJw3QyWQ&s" width="160" height="220" />
+                </div>
+                <div >                    <h3>Long Walk to Freedom </h3>
+                    <p>
+                        An insightful guide to personal growth, explaining how small,
+                        consistent changes in daily habits can lead to remarkable
+                        transformations, backed by science and practical strategies for
+                        long-lasting success.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="outer">
+            <div class="inner" >                <div>
+                    <img src="https://m.media-amazon.com/images/I/61QfKSGnwEL._AC_UF1000,1000_QL80_.jpg " width="160"
+                        height="220" />
+                </div>
+                <div>
+                    <h3>The Disciplined Pursuit of Less</h3>
+                    <p>
+                        This book focuses on prioritizing what truly matters by
+                        eliminating distractions and saying "no" to non-essential tasks.
+                        It offers a practical approach to achieving clarity, focus, and a
+                        more fulfilling life by doing less but better.
+                    </p>
+                </div>
+            </div>
+            <div class="inner" >                <div>
+                    <img src=" https://m.media-amazon.com/images/I/81KGjsBXQ7L._AC_UF1000,1000_QL80_.jpg" width="160"
+                        height="220" />
+                </div>
+                <div>
+                    <h3>Becoming</h3>
+                    <p>
+                        An inspiring memoir of Michelle Obama’s journey from humble
+                        beginnings to becoming a global icon, showcasing her resilience,
+                        wisdom, and commitment to empowering others through her personal
+                        and professional life.
+                    </p>
+                </div>
+            </div>
+            <div class="inner" >                <div>
+                    <img src="https://m.media-amazon.com/images/I/71PTAp96xLL._AC_UF1000,1000_QL80_.jpg " width="160"
+                        height="220" />
+                </div>
+                <div>
+                    <h3>Steve Jobs</h3>
+                    <p>
+                        A compelling biography exploring the complex personality and
+                        visionary genius of Steve Jobs, revealing how his innovation,
+                        determination, and passion shaped the world of technology and
+                        design.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Slider insertion -->
+    </section>
+    <!-- Featured Book Section End -->
+
+    <!-- Categories Section Begin -->
+    <section>
+        <center><h2>Genres You Will Find</h2><br>
+        <div style="display: grid; grid-template-columns: 25%25%25%25%">
+            <div class="maincontainer">
+                <div class="thecard">
+                    <div class="front" style="
+                background-image: url('https://img.freepik.com/free-photo/international-day-education-cartoon-style_23-2151007424.jpg?semt=ais_hybrid');
+              "></div>
+                    <div class="back">
+                        <h1>Fantasy</h1>
+                        <p>
+                            Fantasy transports readers to imaginative worlds filled with
+                            magic, mythical creatures, and epic adventures. Known for rich
+                            world-building, this genre offers escapism and thrilling
+                            journeys of heroism and discovery.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="maincontainer">
+                <div class="thecard">
+                    <div class="front" style="
+                background-image: url('https://w0.peakpx.com/wallpaper/500/34/HD-wallpaper-red-forest-thriller-man-silhouette-fantasy-thumbnail.jpg');
+              "></div>
+                    <div class="back">
+                        <h1>Thrillers</h1>
+                        <p>
+                            Thrillers keep readers on edge with suspense, unexpected twists,
+                            and gripping narratives. Mystery novels challenge readers to
+                            solve puzzles alongside characters, offering excitement and
+                            intellectual engagement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="maincontainer">
+                <div class="thecard">
+                    <div class="front" style="
+                background-image: url('https://media.istockphoto.com/id/1314894604/vector/businessman-on-a-ladder-reaching-the-star-above-cloud-business-concept-paper-art-vector.jpg?s=612x612&w=0&k=20&c=x2ad1vndym6_5ROy8fmCiH6G2PjSDMWvbrguCDOIvdY=');
+              "></div>
+                    <div class="back">
+                        <H1>Self-Development</H1>
+                        <p>
+                            This genre focuses on personal growth, offering actionable
+                            strategies for improving habits, mindset, and productivity. It’s
+                            inspiring and practical, designed to help readers lead more
+                            fulfilling lives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="maincontainer">
+                <div class="thecard">
+                    <div class="front" style="
+                background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFLT0Eevj1xDCW75PSyHJ-0vzaR2_jCdJj9qXYKDcv35G_-E16Vs8e3UwKmLphMndQ52c&usqp=CAU');
+              "></div>
+                    <div class="back">
+                        <h1>Biographies & Autobiographies</h1>
+                        <p>
+                            Biographies delve into the lives of extraordinary individuals,
+                            sharing their struggles, triumphs, and journeys. They offer
+                            inspiration and insights into history, leadership, and human
+                            resilience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section></center>
+    <!-- Categories Section End -->
+
+    <footer>
+        <p>&copy; 2024 Readers Stop. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

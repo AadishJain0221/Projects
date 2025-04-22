@@ -1,0 +1,183 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>About Us - Readers Stop</title>
+</head>
+<style>
+    body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F5F5DC;
+            color: #4B2E2E;
+            margin: 0;
+            padding: 0;
+        }
+
+            /* Header Styling */
+    header {
+        background-color: #6B8E23; /* Muted green background */
+        color: white;
+        padding: 15px 0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .logo h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        margin: 0;
+        text-align: left;
+    }
+
+    nav {
+        flex: 1;
+        text-align: right;
+    }
+
+    .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 15px;
+    }
+
+    .nav-links li {
+        display: inline;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 5px 10px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #F5F5DC; /* Light parchment color */
+    }
+
+    /* Animation for Hover Effect */
+    .nav-links a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #F5F5DC; /* Light parchment */
+        bottom: 0;
+        left: -100%;
+        transition: left 0.3s ease;
+    }
+
+    .nav-links a:hover::before {
+        left: 0;
+    }
+
+
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero-about {
+            background-color: #EEE8AA;
+            border-bottom: 2px solid #E6D5B8;
+        }
+
+        .hero-about h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .hero-about p {
+            font-size: 18px;
+            color: #666666;
+        }
+        img {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .mission, .team, .journey {
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .mission h2, .team h2, .journey h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .team img {
+            border-radius: 50%;
+            margin: 10px;
+            width: 120px;
+            height: 120px;
+        }
+
+        footer {
+            background-color: #4B2E2E;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+</style>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <h1>Readers <br> Stop</h1>
+        </div>
+        <div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Reviews.html">Book Reviews</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Header section end -->
+
+<section class="hero-about">
+    <h1>About Us</h1>
+    <p>Connecting readers to the stories that matter.</p>
+    <img src="https://img.freepik.com/premium-photo/man-is-reading-book-library-with-candles-ai_97070-14027.jpg" alt="Person Reading a Book" >
+</section>
+
+<!-- Mission Section -->
+<section id="mission">
+    <h2>Our Mission</h2>
+    <p>At Readers Stop, we aim to connect book lovers worldwide, foster meaningful discussions, and promote quality literature that inspires and enriches lives.</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtriQmMy7ZWbx16P0gBRIRcO7hZR-TWzKsow&s" alt="Book Club Illustration">
+</section>
+
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Readers Stop. All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,509 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Overviews</title>
+</head>
+
+<style>
+
+    /* General Styling */
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #F5F5DC; /* Parchment-like background */
+        color: #4B2E2E; /* Dark brown text */
+    }
+
+    header {
+        background-color: #6B8E23; /* Muted green background */
+        color: white;
+        padding: 15px 0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .logo h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        margin: 0;
+        text-align: left;
+    }
+
+    nav {
+        flex: 1;
+        text-align: right;
+    }
+
+    .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 15px;
+    }
+
+    .nav-links li {
+        display: inline;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 5px 10px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #F5F5DC; /* Light parchment color */
+    }
+
+    /* Animation for Hover Effect */
+    .nav-links a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #F5F5DC; /* Light parchment */
+        bottom: 0;
+        left: -100%;
+        transition: left 0.3s ease;
+    }
+
+    .nav-links a:hover::before {
+        left: 0;
+    }
+
+    /* Hero Section */
+    section {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #EEE8AA; /* Pale golden parchment */
+        border-bottom: 2px solid #E6D5B8; /* Soft tan separator */
+    }
+
+    section h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    section p {
+        font-size: 18px;
+        color: #666666;
+        margin: 0 auto;
+        max-width: 700px;
+    }
+
+    /* Featured Reviews */
+    .container {
+        margin: 50px auto;
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .container img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .container img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Genre Section */
+    .card {
+        margin: 20px;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background-color: #FFF8DC; /* Light beige */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .content {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .content h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .content p {
+        font-size: 14px;
+        color: #f6f2f2;
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background-color: #E6D5B8;
+        margin: 30px 0;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #4B2E2E; /* Dark brown */
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .container {
+        margin: 100px 0 0 200px;
+        width: 70%;
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .container img {
+        width: 15%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+        border: 3px solid rgba(225, 225, 225, 0.6);
+    }
+
+    .container img:hover {
+        width: 40%;
+        transition: all 0.7s ease-in-out;
+    }
+
+    .card {
+        margin: 10px;
+        position: relative;
+        width: 300px;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background: #fff;
+        transition: transform 0.3s ease;
+
+    }
+
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+    }
+
+
+    .content {
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        justify-content: center;
+    }
+
+    .card .content {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        position: absolute;
+    }
+
+    .content p {
+        padding: 2px;
+        font-size: 20px;
+    }
+
+    .card:hover img {
+        width: 110%;
+        opacity: 0.5;
+        transition: 0.5s ease-in-out;
+    }
+
+    .card:hover .content {
+        opacity: 1;
+        transition: 0.6s 0.4s ease;
+    }
+</style>
+
+
+<body>
+    <!-- Header section start -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Readers <br> Stop</h1>
+            </div>
+            <div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Reviews.html">Book Reviews</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Header section end -->
+
+    <!-- Hero Banner Begin -->
+    <section>
+        <h2>Book Reviews</h2>
+        <p>Discover Reviews that Shape Your Next Read </p>
+        <!-- image of cozy library or a person reading books -->
+    </section>
+    <!-- Hero Banner End -->
+
+    <!-- Featured Revies Begin -->
+    <section>
+        <h2>Top Picks</h2>
+        <div class="container">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_0r-ANSAslrP5o32VVihnMZB-dv2FOEUlMA&s">
+            <img
+                src="https://bookbub-res.cloudinary.com/image/upload/f_auto,q_auto/v1584109358/blog/the-hobbit-book-cover-art-Paperback-2012.jpg">
+            <img src=" https://m.media-amazon.com/images/I/71y4X5150dL._AC_UF1000,1000_QL80_.jpg">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXQx9i-VqL1w0_AYfSzt06q-U4YVQwuA4E9g&s">
+            <img src="https://m.media-amazon.com/images/I/7196sTeTolL._AC_UF1000,1000_QL80_.jpg">
+            <img src="https://m.media-amazon.com/images/I/81F90H7hnML.jpg">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3HodYzIg8TcIJhMIjm9r1cJhC7qyJw3QyWQ&s">
+            <img src="https://m.media-amazon.com/images/I/71din4TLubL._UF1000,1000_QL80_.jpg">
+        </div>
+        <!-- Review of 3-4 great books with their small description and images -->
+    </section>
+    <!-- Featured Revies End -->
+
+    <!-- Genre Section Begin -->
+    <section>
+        <h2>Overview the Genres</h2>
+        <h2>Fantasy</h2>
+        
+            <div style="display: flex;" >
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/81q77Q39nEL.jpg">
+                    <div class="content">
+                        <h2>Harry Potter and the Philosopher’s Stone</h2>
+                        <hr width="50%" align="left">
+                        <p>A captivating start to the Harry Potter series, this magical tale blends adventure, mystery,
+                            and friendship as Harry discovers he’s a wizard and faces the dark wizard Voldemort. A
+                            timeless classic for readers of all ages.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTULSx52Yb_FouE4S_koUzvWtE56bMUsi0Nvg&s">
+                    <div class="content">
+                        <h2>The Lord of the Rings</h2>
+                        <hr width="50%" align="left">
+                        <p>Tolkien’s masterpiece follows the quest to destroy the One Ring and save Middle-earth. Filled with rich lore, complex characters, and epic battles, it’s a cornerstone of modern fantasy literature.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://bookbub-res.cloudinary.com/image/upload/f_auto,q_auto/v1584109358/blog/the-hobbit-book-cover-art-Paperback-2012.jpg">
+                    <div class="content">
+                        <h2>The Hobbit</h2>
+                        <hr width="50%" align="left">
+                        <p>A delightful prequel to The Lord of the Rings, this adventurous tale follows Bilbo Baggins as he encounters dragons, trolls, and the powerful One Ring.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/611iKJa7a-L.jpg">
+                    <div class="content">
+                        <h2>The Name of the Wind</h2>
+                        <hr width="50%" align="left">
+                        <p>A lyrical tale of Kvothe, a gifted boy turned legend, recounting his rise through hardship, magic, and mystery. Rothfuss’s writing makes this a mesmerizing fantasy.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6-td25-MSwgBXb0ftBzqIeACtO7G3kwAl1A&s">
+                    <div class="content">
+                        <h2>Eragon</h2>
+                        <hr width="50%" align="left">
+                        <p>A coming-of-age tale about a farm boy who discovers he’s destined to ride a dragon and fight an oppressive empire. Perfect for fans of classic fantasy.</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        <h2>Mystery Thrillers </h2><hr>
+        <div style="display: flex;" >
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXQx9i-VqL1w0_AYfSzt06q-U4YVQwuA4E9g&s">
+                <div class="content">
+                    <h2>Gone Girl </h2>
+                    <hr width="50%" align="left">
+                    <p>A psychological thriller that explores the dark complexities of marriage with shocking twists. Flynn’s sharp writing and gripping plot keep readers hooked.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/71y4X5150dL._AC_UF1000,1000_QL80_.jpg">
+                <div class="content">
+                    <h2>The Da Vinci Code</h2>
+                    <hr width="50%" align="left">
+                    <p>A gripping thriller combining art, history, and cryptography. Follow Robert Langdon as he deciphers ancient codes and uncovers secrets that could alter Christianity’s foundations.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/81y9uCHoxrL.jpg">
+                <div class="content">
+                    <h2>The Silent Patient</h2>
+                    <hr width="50%" align="left">
+                    <p>A chilling psychological thriller about a woman who stops speaking after committing a murder, and the therapist determined to uncover her secrets.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/7196sTeTolL._AC_UF1000,1000_QL80_.jpg">
+                <div class="content">
+                    <h2>The Woman in the Window</h2>
+                    <hr width="50%" align="left">
+                    <p>A gripping psychological thriller about an agoraphobic woman who believes she’s witnessed a crime, weaving suspense and twists till the end.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/81SFYne3dWL._AC_UF1000,1000_QL80_.jpg">
+                <div class="content">
+                    <h2>Before I Go to Sleep</h2>
+                    <hr width="50%" align="left">
+                    <p>A chilling psychological tale of a woman with amnesia who uncovers shocking truths about her past with each passing day.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h2>Personal Devlopment</h2><hr>
+        <div style="display: flex;" >
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/81F90H7hnML.jpg">
+                <div class="content">
+                    <h2>Atomic Habits</h2>
+                    <hr width="50%" align="left">
+                    <p>A practical guide to making small, consistent changes that lead to remarkable results. Clear provides actionable strategies backed by science for building better habits.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/611OWa8x+WL._AC_UF1000,1000_QL80_.jpg">
+                <div class="content">
+                    <h2>How to Win Friends and Influence People</h2>
+                    <hr width="50%" align="left">
+                    <p>A classic guide to improving communication, building relationships, and becoming more likable, with timeless principles for personal and professional success.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/91fmmjCP6FL._UF1000,1000_QL80_.jpg">
+                <div class="content">
+                    <h2>Grit </h2>
+                    <hr width="50%" align="left">
+                    <p>An inspiring exploration of passion and perseverance, showing how grit, rather than talent, leads to long-term success.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/81GOZ+-+yiL._AC_UF1000,1000_QL80_.jpg">
+                <div class="content">
+                    <h2>Daring Greatly </h2>
+                    <hr width="50%" align="left">
+                    <p>A powerful book about embracing vulnerability, cultivating courage, and living authentically to build meaningful connections and personal fulfillment.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://www.crossword.in/cdn/shop/products/9781780332000.jpg?v=1683795858">
+                <div class="content">
+                    <h2>Mindset</h2>
+                    <hr width="50%" align="left">
+                    <p>A groundbreaking book on the power of adopting a growth mindset to unlock potential and achieve success in all areas of life.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h2> Biographies and Autobiographies</h2><hr>
+        <div style="display: flex;" >
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/81KGjsBXQ7L._AC_UF1000,1000_QL80_.jpg">
+                <div class="content">
+                    <h2>Becoming</h2>
+                    <hr width="50%" align="left">
+                    <p>An inspiring memoir tracing Michelle Obama’s journey from her Chicago roots to the White House, filled with wisdom, resilience, and empowering life lessons.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/71PTAp96xLL._AC_UF1000,1000_QL80_.jpg">
+                <div class="content">
+                    <h2>Steve Jobs </h2>
+                    <hr width="50%" align="left">
+                    <p>A revealing biography of Apple’s visionary co-founder, exploring his innovative genius, leadership style, and personal complexities.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3HodYzIg8TcIJhMIjm9r1cJhC7qyJw3QyWQ&s">
+                <div class="content">
+                    <h2>Long Walk to Freedom </h2>
+                    <hr width="50%" align="left">
+                    <p>An extraordinary autobiography chronicling Mandela’s fight against apartheid and his journey to becoming South Africa’s first Black president.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/81+O-3L5rYL._AC_UF1000,1000_QL80_.jpg">
+                <div class="content">
+                    <h2>The Wright Brothers </h2>
+                    <hr width="50%" align="left">
+                    <p>A captivating account of the Wright brothers’ journey to inventing the airplane, celebrating their ingenuity and determination.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/610b6pC8v+L._AC_UF1000,1000_QL80_.jpg">
+                <div class="content">
+                    <h2>My Experiments with Truth</h2>
+                    <hr width="50%" align="left">
+                    <p>A reflective autobiography detailing Gandhi’s journey of self-discovery, truth, and his philosophy of nonviolence that changed the course of history.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Genre Section End -->
+
+  <footer>
+        <p>&copy; 2024 Readers Stop. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

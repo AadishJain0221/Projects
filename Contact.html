@@ -1,0 +1,208 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Contact Us</title>
+</head>
+
+<style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5DC; /* Parchment background */
+            color: #4B2E2E; /* Dark brown text */
+        }
+
+        header {
+        background-color: #6B8E23; /* Muted green background */
+        color: white;
+        padding: 15px 0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .logo h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        margin: 0;
+        text-align: left;
+    }
+
+    nav {
+        flex: 1;
+        text-align: right;
+    }
+
+    .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 15px;
+    }
+
+    .nav-links li {
+        display: inline;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 5px 10px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #F5F5DC; /* Light parchment color */
+    }
+
+    /* Animation for Hover Effect */
+    .nav-links a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #F5F5DC; /* Light parchment */
+        bottom: 0;
+        left: -100%;
+        transition: left 0.3s ease;
+    }
+
+    .nav-links a:hover::before {
+        left: 0;
+    }
+        /* Hero Section */
+        .hero-contact {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #EEE8AA; /* Pale golden parchment */
+            border-bottom: 2px solid #E6D5B8;
+        }
+
+        .hero-contact h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .hero-contact p {
+            font-size: 18px;
+            color: #666666;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #FFF8DC; /* Light beige */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #DDD;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: #6B8E23;
+            color: white;
+            font-size: 16px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #556B2F;
+        }
+
+        footer {
+            background-color: #4B2E2E;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+</style>
+
+<body>
+<!-- Header section start -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <h1>Readers <br> Stop</h1>
+        </div>
+        <div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Reviews.html">Book Reviews</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        </div>
+    </div>
+</header>
+<!-- Header section end -->
+    
+<section class="hero-contact">
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Share your thoughts, suggestions, or inquiries below.</p>
+</section>
+
+<div class="contact-section">
+    <h2>Get in Touch</h2>
+    <form class="contact-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 Readers Stop. All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,12 @@
+venv/
+__pychache__/
+*.pyc 
+.Python
+
+.env
+
+*.db
+notes.json
+
+Thumbs.db
+*.log

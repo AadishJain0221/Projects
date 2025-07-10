@@ -1,0 +1,12 @@
+venv/
+__pychache__/
+*.pyc 
+*.ipynb_checkpoints/
+
+.vscode
+.env
+*.db
+notes.json
+.DS_Store
+Thumbs.db
+*.log
